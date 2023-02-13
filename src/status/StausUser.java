@@ -10,46 +10,23 @@ package status;
  * @author srinivsi
  */
 public class StausUser 
-{
- 
-{
-   public enum StatusCode
-   {
-       ZERO, ONE, TWO, ThREE
-   }
-   public enum Status
-   {
-       REJECTED, PENDING, PROCESSING, APPROVED, NOT 
-   }
-   private StatusCode code;
-   private Status status;
-   
-   public StausUser(StatusCode code, Status status)
-   {
-       this.code = code;
-       this.status = status;
-   }
-   public String setCode(StatusCode code)
-   {
-       if(((code == "ZERO" || code == "ONE") || code == "TWO")||code=="THREE")
-       {
-           this.code = code;
-       }
-       else
-       {
-           return "NOT VALID CODE";
-       }
-   
-   public StatusCode getCode()
+{   public void statusDetail(UserStatus status) {
+        switch(status) {
+            case REJECTED: System.out.println("REJECTED"); break;
+            case PENDING: System.out.println("PENDING"); break;
+            case PROCESSING: System.out.println("PROCESSING"); break;
+            case APPROVED: System.out.println("APPROVED"); break;
+            default: System.out.println("NOT VALID CODE"); break;
+        }
+    }
+}
 
-       return this.code;
-   }
-   
-   public void setStatus(Status status)
-   {
-       this.status = status;
-   }
-   public Status getStatus()
-   {
-       return this.status;
-   }
+public class Status {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the user status code (REJECTED, PENDING, PROCESSING, APPROVED):");
+        UserStatus status = UserStatus.valueOf(in.next().toUpperCase());
+        StausUser t = new StausUser();
+        t.statusDetail(status);
+    }
+}
