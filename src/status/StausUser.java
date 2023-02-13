@@ -15,11 +15,11 @@ public class StausUser
 {
    public enum StatusCode
    {
-       ZERO, ONE, TWO, TREE
+       ZERO, ONE, TWO, ThREE
    }
    public enum Status
    {
-       REJECTED, PENDING, PROCESSING, APPROVED, NOT VALID CODE
+       REJECTED, PENDING, PROCESSING, APPROVED, NOT 
    }
    private StatusCode code;
    private Status status;
@@ -31,15 +31,15 @@ public class StausUser
    }
    public String setCode(StatusCode code)
    {
-       if(code!="ZERO"&&code!="ONE"&&code!="TWO"&&code!="THREE")
-       {
-           return "NOT VALID CODE";
-       }
-       else
+       if(((code == "ZERO" || code == "ONE") || code == "TWO")||code=="THREE")
        {
            this.code = code;
        }
-   }
+       else
+       {
+           return "NOT VALID CODE";
+       }
+   
    public StatusCode getCode()
 
        return this.code;
